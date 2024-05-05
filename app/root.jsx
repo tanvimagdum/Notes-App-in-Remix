@@ -5,6 +5,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import MainNavigation from "./components/MainNavigation/MainNavigation";
+import styles from './styles/main.css';
 
 export function Layout({ children }) {
   return (
@@ -16,6 +18,9 @@ export function Layout({ children }) {
         <Links />
       </head>
       <body>
+        <header>
+          <MainNavigation/>
+        </header>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -26,4 +31,8 @@ export function Layout({ children }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function links() {
+  return [{rel: 'stylesheet', href: styles}];
 }
